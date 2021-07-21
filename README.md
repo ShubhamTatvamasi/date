@@ -2,6 +2,9 @@
 
 update date on server at the time of restart:
 ```bash
+# first become root user
+sudo su
+
 cat << EOF > /etc/init.d/update-date
 date --set="\$(curl -I 'https://google.com/' 2>/dev/null | grep -i '^date:' | sed 's/^[Dd]ate: //g')"
 EOF
