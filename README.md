@@ -1,6 +1,11 @@
 # date
 
-Display date and time
+update time from server:
+```bash
+date --set="$(curl -I 'https://google.com/' 2>/dev/null | grep -i '^date:' | sed 's/^[Dd]ate: //g')"
+```
+
+Display date and time:
 ```bash
 date
 
