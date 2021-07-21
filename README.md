@@ -1,5 +1,13 @@
 # date
 
+update date on server at the time of restart:
+```bash
+sudo cat << EOF > /etc/init.d/update-date
+date --set="\$(curl -I 'https://google.com/' 2>/dev/null | grep -i '^date:' | sed 's/^[Dd]ate: //g')"
+EOF
+sudo chmod +x /etc/init.d/update-date
+```
+
 update time from server:
 ```bash
 date --set="$(curl -I 'https://google.com/' 2>/dev/null | grep -i '^date:' | sed 's/^[Dd]ate: //g')"
