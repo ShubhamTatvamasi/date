@@ -32,6 +32,11 @@ TZ=Asia/Kolkata date
 TZ=Asia/Tokyo date
 ```
 
+epoch time
+```bash
+date +%s
+```
+
 generate random pasword:
 ```bash
 date +%s%N | md5sum | awk '{print $1}'
